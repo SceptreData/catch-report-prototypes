@@ -23,6 +23,13 @@ form {
   flex-direction: column;
   width: 40%;
 }
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
 input {
   font-size: 1.125rem;
@@ -39,6 +46,11 @@ select {
 .prototypes {
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 600px) {
+  .prototypes {
+    flex-direction: column;
+  }
 }
 
 #add-fish {
