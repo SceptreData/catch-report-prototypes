@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catch Prototypes</title>
 
-    <link rel="stylesheet" href="style.scss" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Catch Report Prototypes</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catch Prototypes</title>
 
+  <link rel="stylesheet" href="style.scss" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Catch Report Prototypes</h1>
+    <div class="prototypes">
       <form class="list-form" id="list-form">
-        <label for="list-date">List Date</label>
+        <h2>Version A</h2>
+        <label for="list-date">Date</label>
         <input type="date" name="list-date" id="list-date" />
 
+        <label for="list-location">Location</label>
         <select name="list-location" id="list-location">
           <option value="legate">Legate</option>
           <option value="skeena">Skeena</option>
@@ -23,35 +27,8 @@
         </select>
 
         <div class="species-entry">
-          <select name="list-fish" id="list-fish">
-            <option value="pink">Pink</option>
-            <option value="sockeye">Sockeye</option>
-            <option value="canyon">Canyon</option>
-          </select>
-        </div>
-
-        <div class="species-list"></div>
-
-        <textarea
-          name="list-notes"
-          id="list-notes"
-          cols="30"
-          rows="10"
-        ></textarea>
-      </form>
-
-      <div class="multi-input">
-        <form class="list-form" id="list-form">
-          <label for="list-date">List Date</label>
-          <input type="date" name="list-date" id="list-date" />
-
-          <select name="list-location" id="list-location">
-            <option value="legate">Legate</option>
-            <option value="skeena">Skeena</option>
-            <option value="canyone">Canyon</option>
-          </select>
-
-          <div class="species-entry">
+          <div>
+            <label for="list-fish">Fish Species</label>
             <select name="list-fish" id="list-fish">
               <option value="pink">Pink</option>
               <option value="sockeye">Sockeye</option>
@@ -59,15 +36,68 @@
             </select>
           </div>
 
-          <textarea
-            name="list-notes"
-            id="list-notes"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </form>
-      </div>
+          <div>
+            <label for="list-quantity">Quantity</label>
+            <input type="number" name="list-quantity" id="list-date" value="0" min="0"/>
+          </div>
+
+          <button id="add-fish">Add Fish</button>
+        </div>
+
+        <div class="viewport empty" id="list-viewport">
+          please add a fish...
+        </div>
+
+        <textarea name="list-notes" id="list-notes" cols="30" rows="3" placeholder="Notes..."></textarea>
+
+          <button class="submit">Submit</button>
+      </form>
+
+      <form class="multi-form" id="multi-form">
+        <h2>Version B</h2>
+        <label for="multi-date"> Date</label>
+        <input type="date" name="multi-date" id="multi-date" />
+
+        <label for="multi-location">Location</label>
+        <select name="multi-location" id="multi-location">
+          <option value="legate">Legate</option>
+          <option value="skeena">Skeena</option>
+          <option value="canyone">Canyon</option>
+        </select>
+
+        <div class="fish-inputs">
+          <div class="fish-input">
+            <label for="sockeye">Sockeye</label>
+            <input type="number" name="sockeye" id="sockeye">
+          </div>
+          <div class="fish-input">
+            <label for="pink">Pink</label>
+            <input type="number" name="pink" id="pink">
+          </div>
+          <div class="fish-input">
+            <label for="chinook">Chinook</label>
+            <input type="number" name="chinook" id="chinook">
+          </div>
+          <div class="fish-input">
+            <label for="coho">Coho</label>
+            <input type="number" name="coho" id="coho">
+          </div>
+          <div class="fish-input">
+            <label for="chum">Chum</label>
+            <input type="number" name="chum" id="chum">
+          </div>
+          <div class="fish-input">
+            <label for="steelhead">Steelhead</label>
+            <input type="number" name="steelhead" id="steelhead">
+          </div>
+        </div>
+
+        <textarea name="multi-notes" id="multi-notes" cols="30" rows="3" placeholder="notes..."></textarea>
+          <button class="submit">Submit</button>
+      </form>
     </div>
-    <script src="/main.js"></script>
-  </body>
+  </div>
+  <script src="/main.js"></script>
+</body>
+
 </html>

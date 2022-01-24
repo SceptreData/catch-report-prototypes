@@ -15,7 +15,99 @@ body {
 }
 
 h1 {
-  margin-bottom: 3rem;
+  margin-bottom: 1.125rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+input {
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.prototypes {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-fish {
+  background: #70d870;
+  border: 0;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: underline;
+}
+#add-fish:hover {
+  background: #9bf09b;
+}
+
+.viewport {
+  min-height: 100px;
+  width: 100%;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.viewport.empty {
+  padding: 0.5rem 1rem;
+  color: lightslategray;
+}
+
+.species-entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.species-entry > div {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.fish-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fish-input {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.fish-input label {
+  width: 75px;
+  margin-right: 0.5rem;
+}
+.fish-input input {
+  max-width: 30px;
+}
+
+.submit {
+  padding: 1rem 2rem;
+  background: lightgreen;
+  border: 0;
+  border-radius: 3px;
+}
+
+p {
+  padding-bottom: 0;
+  display: flex;
+  width: 125px;
+  justify-content: space-between;
+  margin: 0.125rem;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */

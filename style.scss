@@ -13,4 +13,94 @@ body {
   flex-direction: column;
 }
 
-h1 {margin-bottom: 3rem;}
+h1 {margin-bottom: 1.125rem;}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+input {
+  font-size: 1.125rem;
+  padding: .5rem 1rem;
+  margin-bottom: .5rem;
+}
+
+select {
+  font-size: 1.125rem;
+  padding: .5rem 1rem;
+  margin-bottom: .5rem;
+}
+
+.prototypes {
+  display: flex;
+  justify-content: space-between;
+}
+#add-fish {
+  background: rgb(112, 216, 112);
+  border: 0;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: underline;
+  &:hover {
+    background:rgb(155, 240, 155)
+  }
+}
+.viewport {
+  min-height: 100px;
+  width: 100%;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.viewport.empty {
+  padding: .5rem 1rem;
+  color: lightslategray;
+}
+
+
+.species-entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+.species-entry > div {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.fish-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fish-input {
+  display: flex;
+  align-items: center;;
+  width: 50%;
+  label {
+    width: 75px;
+    margin-right: .5rem;
+  }
+  input {
+    max-width: 30px;
+  }
+}
+
+.submit {
+  padding: 1rem 2rem;
+  background: lightgreen;
+  border:0;
+  border-radius: 3px;
+}
+
+p {
+  padding-bottom: 0;
+  display: flex;
+  width: 125px;
+  justify-content: space-between;
+  margin: .125rem;
+}
