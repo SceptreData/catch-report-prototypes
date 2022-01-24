@@ -22,11 +22,12 @@ form {
   display: flex;
   flex-direction: column;
   width: 40%;
+  margin: 0;
 }
 @media screen and (max-width: 600px) {
   form {
     flex-direction: column;
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
   }
 }
@@ -35,6 +36,7 @@ input {
   font-size: 1.125rem;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 select {
@@ -81,12 +83,17 @@ select {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .species-entry > div {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
+}
+
+.species-select {
+  width: 45% !important;
 }
 
 .fish-inputs {
