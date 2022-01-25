@@ -11,7 +11,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   background: #f8fafc;
-  color: black;
+  color: black !important;
 }
 
 .container {
@@ -81,6 +81,7 @@ input {
   margin-bottom: 0.5rem;
   width: 100%;
   border: 1px solid black;
+  color: black;
 }
 
 select {
@@ -115,7 +116,8 @@ select {
 }
 
 #list-quantity {
-  width: 30px;
+  width: 80%;
+  color: black;
 }
 
 #list-fish {
@@ -166,13 +168,14 @@ select {
   display: flex;
   align-items: center;
   width: 50%;
+  color: black;
 }
 .fish-input label {
   width: 75px;
   margin-right: 0.5rem;
 }
 .fish-input input {
-  max-width: 30px;
+  max-width: 50px;
 }
 
 textarea {
@@ -193,6 +196,10 @@ p {
   width: 125px;
   justify-content: space-between;
   margin: 0.125rem;
+}
+
+.fish-input input {
+  padding: 0.5rem;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
