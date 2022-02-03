@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -32,8 +32,8 @@ form {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  width: 40%;
-  margin: 0;
+  width: 100%;
+  margin: 0 auto;
 }
 @media screen and (max-width: 600px) {
   form {
@@ -124,6 +124,19 @@ select {
   width: 80%;
 }
 
+#multi-form {
+  display: none;
+}
+
+#error {
+  color: #EF4444;
+}
+
+h5 {
+  color: #3f3f3f;
+  margin-bottom: 0.5rem;
+}
+
 .viewport {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(128, 128, 128, 0.616);
@@ -131,11 +144,33 @@ select {
   width: 100%;
   background: white;
   margin-bottom: 1rem;
+  overflow: hidden;
+}
+.viewport .fish-entry {
+  width: 100%;
+  padding: 0.2rem 1rem;
+}
+.viewport .fish-entry button {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+.viewport .fish-entry:hover {
+  background: #86efac;
+}
+.viewport .fish-entry:hover button {
+  visibility: visible;
+  cursor: pointer;
+  background: #EF4444;
+  margin-left: auto;
+}
+.viewport button {
+  visibility: hidden;
+  border: 0;
 }
 
 .viewport.empty {
   padding: 0.5rem 1rem;
-  color: lightslategray;
+  color: #3f3f3f;
 }
 
 .species-entry {
@@ -193,9 +228,17 @@ textarea {
 p {
   padding-bottom: 0;
   display: flex;
+  align-items: center;
   width: 125px;
-  justify-content: space-between;
   margin: 0.125rem;
+  margin-bottom: 0.25rem;
+}
+p .vp-species {
+  width: 25%;
+}
+p .vp-quantity {
+  width: 10%;
+  text-align: right;
 }
 
 .fish-input input {

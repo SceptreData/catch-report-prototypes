@@ -118,9 +118,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var viewport = document.querySelector('#list-viewport');
 var addFishBtn = document.querySelector('#add-fish');
 var form = document.querySelector('#list-form');
+var error = document.querySelector('#error');
 var fish = [];
 
 function updateViewport() {
@@ -128,35 +135,97 @@ function updateViewport() {
   var fishHTML = '';
   var combinedFish = combineFish(fish);
 
+  if (Object.keys(combinedFish).length) {
+    viewport.classList.remove('empty');
+  } else {
+    viewport.classList.add('empty');
+  }
+
   for (var _fish in combinedFish) {
-    fishHTML += "\n      <p>\n        <span class=\"vp-species\">".concat(_fish.toUpperCase(), "</span> <span class=\"vp-quantity\">").concat(combinedFish[_fish], "</span>\n      </p>\n    ");
+    fishHTML += "\n      <p class=\"fish-entry\">\n        <span class=\"vp-species\">".concat(_fish.toUpperCase(), "</span> <span class=\"vp-quantity\">").concat(combinedFish[_fish], "</span> <button class=\"delete-fish\">X</button>\n      </p>\n    ");
     viewport.innerHTML = fishHTML;
+  }
+
+  var btns = document.querySelectorAll('.delete-fish');
+
+  var _iterator = _createForOfIteratorHelper(btns),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var btn = _step.value;
+      btn.addEventListener('click', removeFish);
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
 }
 
 function combineFish() {
   var fishObj = {};
   fish.forEach(function (fish) {
-    if (fishObj[fish.species]) {
-      fishObj[fish.species] += Number(fish.quantity);
-    } else {
-      fishObj[fish.species] = Number(fish.quantity);
+    if (fish.quantity) {
+      if (fishObj[fish.species]) {
+        fishObj[fish.species] += Number(fish.quantity);
+      } else {
+        fishObj[fish.species] = Number(fish.quantity);
+      }
     }
   });
-  console.log(fishObj);
   return fishObj;
+}
+
+function resetSelections() {
+  document.querySelector('#list-quantity').value = 0;
+  document.querySelector('#list-fish').selectedIndex = 0;
+}
+
+function removeFish(e) {
+  e.preventDefault();
+  var parent = e.target.parentElement;
+  var fishName = parent.querySelector('.vp-species').innerText.toLowerCase();
+
+  var _iterator2 = _createForOfIteratorHelper(fish),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var fishSpecies = _step2.value;
+      console.log(fishSpecies);
+
+      if (fishSpecies.species == fishName) {
+        fishSpecies.quantity = 0;
+      }
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  parent.remove();
+  updateViewport();
 }
 
 function addFish(e) {
   e.preventDefault();
+  error.innerText = '';
   var formData = new FormData(form);
   var species = formData.get('list-fish');
   var quantity = formData.get('list-quantity');
+
+  if (quantity == 0) {
+    error.innerText = 'Quantity must be higher than 0';
+  }
+
   fish.push({
     species: species,
     quantity: quantity
   });
   updateViewport();
+  resetSelections();
 }
 
 addFishBtn.addEventListener('click', addFish);
@@ -188,7 +257,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61657" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
