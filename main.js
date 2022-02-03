@@ -14,6 +14,7 @@ function updateViewport() {
     viewport.classList.remove('empty')
   } else {
     viewport.classList.add('empty')
+    viewport.innerHTML = 'Please add a fish...'
   }
   for (const fish in combinedFish) {
     fishHTML += `

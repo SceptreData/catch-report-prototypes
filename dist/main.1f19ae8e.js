@@ -139,6 +139,7 @@ function updateViewport() {
     viewport.classList.remove('empty');
   } else {
     viewport.classList.add('empty');
+    viewport.innerHTML = 'Please add a fish...';
   }
 
   for (var _fish in combinedFish) {
@@ -257,7 +258,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64167" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64951" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
